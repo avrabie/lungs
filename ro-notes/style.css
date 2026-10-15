@@ -1,0 +1,117 @@
+:root {
+  --bg: #fbfaf7;
+  --text: #1f2328;
+  --muted: #5d6470;
+  --accent: #1b5e7a;
+  --line: #dcd8cf;
+  --box: #eef4f7;
+  --note: #fff6e0;
+  --note-line: #d9a93a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c;
+    --text: #e4e6ea;
+    --muted: #9aa1ab;
+    --accent: #7cc3e0;
+    --line: #333840;
+    --box: #1d2a31;
+    --note: #2b2516;
+    --note-line: #b8892a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 Georgia, "Times New Roman", serif;
+}
+main { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+nav { font: 14px/1.4 system-ui, sans-serif; margin-bottom: 24px; }
+nav a { color: var(--accent); }
+h1, h2, h3 { font-family: system-ui, sans-serif; line-height: 1.25; }
+h1 { font-size: 1.7rem; margin-bottom: 4px; }
+h2 { font-size: 1.3rem; margin-top: 2.2em; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+h3 { font-size: 1.08rem; margin-top: 1.6em; }
+.meta { color: var(--muted); font: 14px system-ui, sans-serif; }
+.en { color: var(--muted); font-style: italic; }
+.box { background: var(--box); border-radius: 8px; padding: 12px 18px; margin: 18px 0; }
+.box h3 { margin-top: 4px; }
+.nota { background: var(--note); border-left: 4px solid var(--note-line); padding: 10px 16px; margin: 18px 0; border-radius: 0 8px 8px 0; font-size: 0.95em; }
+.nota::before { content: "Notă pentru student (nu face parte din carte)"; display: block; font: 600 12px system-ui, sans-serif; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 4px; }
+.fig { border: 1px dashed var(--line); padding: 8px 14px; font: 14px system-ui, sans-serif; color: var(--muted); }
+.flow { font-family: system-ui, sans-serif; font-size: 0.95em; }
+table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.95em; }
+th, td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; vertical-align: top; }
+th { background: var(--box); font-family: system-ui, sans-serif; }
+.table-wrap { overflow-x: auto; }
+.cont { color: var(--muted); font-style: italic; }
+@media print {
+  body { background: #fff; color: #000; font-size: 11.5pt; }
+  nav { display: none; }
+  .box, .nota { break-inside: avoid; }
+}
+
+/* diagrame */
+:root {
+  --lung: #f6e1dc; --lung-line: #9b5d55; --imp: rgba(155,93,85,.22); --groove: #d6aea7;
+  --hil: #e9c4bc; --art: #c8463d; --vein: #3f6fb8; --fiss: #6b3b35;
+  --c-sup: #3b78b8; --c-mid: #2f9a66; --c-inf: #d0782f; --c-main: #8a8f98;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --lung: #3d2c29; --lung-line: #d9a59c; --imp: rgba(217,165,156,.20); --groove: #6e4f4a;
+    --hil: #5a403c; --art: #e0675e; --vein: #6f9be0; --fiss: #f0c4bb;
+    --c-sup: #6fa6e0; --c-mid: #5cc495; --c-inf: #eb9a55; --c-main: #9aa1ab;
+  }
+}
+.diagram { margin: 22px 0; }
+.diagram svg { width: 100%; height: auto; display: block; }
+.diagram-pair { display: grid; grid-template-columns: 1fr; gap: 8px; }
+@media (min-width: 700px) { main { max-width: 900px; } .diagram-pair { grid-template-columns: 1fr 1fr; } }
+.diagram figcaption { font: 14px/1.5 system-ui, sans-serif; color: var(--muted); margin-top: 8px; }
+.diagram text { font-family: system-ui, sans-serif; fill: var(--text); }
+.d-title { font-size: 15px; font-weight: 600; }
+.lbl { font-size: 13px; }
+.lbl.small, .lbl .small { font-size: 12px; fill: var(--muted); }
+.orient { font-size: 12px; fill: var(--muted) !important; font-style: italic; }
+.lung { fill: var(--lung); }
+.lung-edge { fill: none; stroke: var(--lung-line); stroke-width: 2; }
+.imp { fill: var(--imp); }
+.groove { fill: none; stroke: var(--groove); stroke-linecap: round; }
+.fiss { fill: none; stroke: var(--fiss); stroke-width: 2.2; stroke-dasharray: 7 4; }
+.hil { fill: var(--hil); stroke: var(--lung-line); stroke-width: 1.5; }
+.br { fill: var(--bg); stroke: var(--text); stroke-width: 2; }
+.art { fill: var(--art); }
+.vein { fill: var(--vein); }
+.lead path { stroke: var(--muted); stroke-width: 1; fill: none; }
+.trachea rect { fill: none; stroke: var(--c-main); stroke-width: 3; }
+.trachea path { stroke: var(--c-main); stroke-width: 2; opacity: .6; }
+.air .main { stroke: var(--c-main); }
+.air .sup { stroke: var(--c-sup); }
+.air .mid { stroke: var(--c-mid); }
+.air .inf { stroke: var(--c-inf); }
+.seg circle { fill: var(--bg); stroke-width: 2.5; }
+.seg text { font-size: 12px; font-weight: 700; text-anchor: middle; }
+.s-sup circle { stroke: var(--c-sup); }
+.s-mid circle { stroke: var(--c-mid); }
+.s-inf circle { stroke: var(--c-inf); }
+.key { display: inline-block; width: 11px; height: 11px; border-radius: 50%; vertical-align: -1px; margin-right: 3px; }
+.sup-k { background: var(--c-sup); } .mid-k { background: var(--c-mid); } .inf-k { background: var(--c-inf); }
+.br-k { background: var(--bg); border: 2px solid var(--text); } .art-k { background: var(--art); } .vein-k { background: var(--vein); }
+@media print { .diagram { break-inside: avoid; } }
+
+/* cuprins cu subcapitole */
+h3.section { margin-top: 1.4em; }
+h3.pending { color: var(--muted); }
+ul.chapters { list-style: none; padding-left: 0; }
+ul.chapters > li { margin: 10px 0; }
+ul.chapters > li > a { font-weight: 600; }
+ul.sub { list-style: none; padding-left: 18px; margin: 4px 0 12px; font-size: 0.95em; }
+ul.sub li { margin: 2px 0; }
+ul.sub a { text-decoration: none; }
+ul.sub a:hover { text-decoration: underline; }
+h2[id] { scroll-margin-top: 16px; }
+
+h4 { font-family: system-ui, sans-serif; font-size: 1rem; margin: 1.3em 0 .4em; color: var(--muted); }
